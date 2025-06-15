@@ -9,7 +9,7 @@ firebase_json = os.environ.get("FIREBASE_CREDENTIALS")
 cert_data = json.loads(firebase_json)
 cred = credentials.Certificate(cert_data)
 firebase_admin.initialize_app(cred, {
-    'databaseURL': 'https://console.firebase.google.com/u/0/project/websitemonitor-d6c65/database/websitemonitor-d6c65-default-rtdb/data/~2F'
+    'databaseURL': 'https://websitemonitor-d6c65-default-rtdb.firebaseio.com/'
 })
 
 app = Flask(__name__)
@@ -20,4 +20,5 @@ def index():
     return render_template('index.html', logs=logs)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
