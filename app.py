@@ -9,7 +9,7 @@ firebase_json = os.environ.get("FIREBASE_CREDENTIALS")
 cert_data = json.loads(firebase_json)
 cred = credentials.Certificate(cert_data)
 firebase_admin.initialize_app(cred, {
-    'databaseURL': 'https://console.firebase.google.com/u/0/project/websitemonitor-d6c65/'
+    'databaseURL': 'https://console.firebase.google.com/u/0/project/websitemonitor-d6c65/database/websitemonitor-d6c65-default-rtdb/data/~2F'
 })
 
 app = Flask(__name__)
