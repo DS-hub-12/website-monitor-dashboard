@@ -17,6 +17,8 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     logs = db.reference("logs").get()
+    if logs is None:
+        logs = {}  # ✅ prevent crash if DB is empty
     return render_template('index.html', logs=logs)
 
 if __name__ == '__main__':
