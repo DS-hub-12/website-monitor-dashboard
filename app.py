@@ -1,3 +1,5 @@
+import os
+import json
 from flask import Flask, render_template
 import firebase_admin
 from firebase_admin import credentials, db
@@ -5,7 +7,7 @@ from firebase_admin import credentials, db
 firebase_json = os.environ.get("FIREBASE_CREDENTIALS")
 cred = credentials.Certificate(json.loads(firebase_json))
 firebase_admin.initialize_app(cred, {
-    'databaseURL': 'https://your-project.firebaseio.com/'
+    'databaseURL': 'https://console.firebase.google.com/u/0/project/websitemonitor-d6c65/'
 })
 
 app = Flask(__name__)
