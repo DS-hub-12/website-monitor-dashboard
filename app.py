@@ -7,7 +7,7 @@ from firebase_admin import credentials, db
 
 firebase_json = os.environ.get("FIREBASE_CREDENTIALS")
 cert_data = json.loads(firebase_json)
-cred = credentials.Certificate(io.StringIO(json.dumps(cert_data)))
+cred = credentials.Certificate(cert_data)
 firebase_admin.initialize_app(cred, {
     'databaseURL': 'https://console.firebase.google.com/u/0/project/websitemonitor-d6c65/'
 })
