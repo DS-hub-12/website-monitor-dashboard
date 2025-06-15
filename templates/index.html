@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head><title>Website Status Log</title></head>
+<body>
+  <h1>Website Monitoring Log</h1>
+  {% for site, entries in logs.items() %}
+    <h2>{{ site.replace('_', '.') }}</h2>
+    <ul>
+      {% for key, entry in entries.items() %}
+        <li>{{ entry.timestamp }} - {{ entry.status }}</li>
+      {% endfor %}
+    </ul>
+  {% endfor %}
+</body>
+</html>
